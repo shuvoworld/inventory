@@ -10,6 +10,8 @@ use Laravel\Nova\Fields\MorphToMany;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Sereny\NovaPermissions\Nova\Permission;
+use Sereny\NovaPermissions\Nova\Role;
 
 class User extends Resource
 {
@@ -64,8 +66,8 @@ class User extends Resource
                 ->creationRules('required', Rules\Password::defaults())
                 ->updateRules('nullable', Rules\Password::defaults()),
 
-            MorphToMany::make('Roles', 'roles', \Sereny\NovaPermissions\Nova\Role::class),
-            MorphToMany::make('Permissions', 'permissions', \Sereny\NovaPermissions\Nova\Permission::class),
+            MorphToMany::make('Roles', 'roles', Role::class),
+            MorphToMany::make('Permissions', 'permissions', Permission::class),
         ];
     }
 
