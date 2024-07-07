@@ -4,17 +4,19 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class ProductCategory extends Resource
+class Product extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\ProductCategory>
+     * @var class-string<\App\Models\Product>
      */
-    public static $model = \App\Models\ProductCategory::class;
+    public static $model = \App\Models\Product::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -31,7 +33,7 @@ class ProductCategory extends Resource
     public static $search = [
         'id',
         'name',
-        'name_bn'
+        'name_bn',
     ];
 
     /**
@@ -46,6 +48,8 @@ class ProductCategory extends Resource
             ID::make()->sortable(),
             Text::make('Name','name')->sortable(),
             Text::make('Name (BN)', 'name_bn')->sortable(),
+            Select::make('Category ID', 'category_id')->sortable(),
+            Number::make('Minimum Stock Count', 'minimum_stock_count')->sortable()
         ];
     }
 

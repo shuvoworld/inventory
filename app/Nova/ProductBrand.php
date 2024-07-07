@@ -7,14 +7,14 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class ProductCategory extends Resource
+class ProductBrand extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\ProductCategory>
+     * @var class-string<\App\Models\ProductBrand>
      */
-    public static $model = \App\Models\ProductCategory::class;
+    public static $model = \App\Models\ProductBrand::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
