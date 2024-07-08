@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
@@ -48,7 +49,9 @@ class Product extends Resource
             ID::make()->sortable(),
             Text::make('Name','name')->sortable(),
             Text::make('Name (BN)', 'name_bn')->sortable(),
-            Select::make('Category ID', 'category_id')->sortable(),
+            BelongsTo::make('productCategory')->displayUsing(function ($productCategory) {
+                return $productCategory->name;
+            }),
             Number::make('Minimum Stock Count', 'minimum_stock_count')->sortable()
         ];
     }
