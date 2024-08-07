@@ -3799,16 +3799,16 @@
         },
         {
             "name": "sereny/nova-permissions",
-            "version": "v1.6.1",
+            "version": "v1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/serenysoft/nova-permissions.git",
-                "reference": "f754aa000008b543e21659888ff6964a22a1e686"
+                "reference": "d4309a8208ddfc749dabead97f318beac301611b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/serenysoft/nova-permissions/zipball/f754aa000008b543e21659888ff6964a22a1e686",
-                "reference": "f754aa000008b543e21659888ff6964a22a1e686",
+                "url": "https://api.github.com/repos/serenysoft/nova-permissions/zipball/d4309a8208ddfc749dabead97f318beac301611b",
+                "reference": "d4309a8208ddfc749dabead97f318beac301611b",
                 "shasum": ""
             },
             "require": {
@@ -3854,7 +3854,7 @@
                 "issues": "https://github.com/serenysoft/nova-permission/issues?state=open",
                 "source": "https://github.com/serenysoft/nova-permission"
             },
-            "time": "2024-05-06T20:06:09+00:00"
+            "time": "2024-07-31T20:01:57+00:00"
         },
         {
             "name": "spatie/laravel-permission",

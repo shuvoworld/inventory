@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\PermissionRegistrar;
 
 class RolesAndPermissionsSeeder extends Seeder
 {
@@ -16,7 +18,7 @@ class RolesAndPermissionsSeeder extends Seeder
     public function run()
     {
         // Reset cached roles and permissions
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         $collection = collect([
             'Product',
@@ -34,7 +36,6 @@ class RolesAndPermissionsSeeder extends Seeder
             'User',
             'Role',
             'Permission'
-            // ... // List all your Models you want to have Permissions for.
         ]);
 
         $collection->each(function ($item, $key) {
@@ -52,7 +53,11 @@ class RolesAndPermissionsSeeder extends Seeder
         $role->givePermissionTo(Permission::all());
 
          //Give User Super-Admin Role
-         $user = \App\Models\User::where('email', 'shuvoworld@gmail.com')->first(); // Change this to your email.
-         $user->assignRole('super-admin');
+        $user = User::where('email', 'shuvoworld@gmail.com')->first();
+        if ($user) {
+            $user->assignRole('super-admin');
+        } else {
+            $this->command->info('User with email shuvoworld@gmail.com not found.');
+        }
     }
 }

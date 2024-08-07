@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 use Sereny\NovaPermissions\NovaPermissions;
+use App\Models\User;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -69,7 +70,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
             // ...
-            (new \Sereny\NovaPermissions\NovaPermissions())->canSee(function ($request) {
+            (new NovaPermissions())->canSee(function ($request) {
                 return $request->user()->isSuperAdmin();
             }),
         ];
